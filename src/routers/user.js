@@ -19,7 +19,7 @@ router.post('/user/new', async (req, res)=>{
         res.status(200).send({user: userCreated, token});
     }
     catch(e){
-        res.status(501).send({"error": "user not created"});
+        res.status(501).send({"error": "user not created", e});
     }
 });
 
