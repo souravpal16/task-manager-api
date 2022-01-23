@@ -70,7 +70,7 @@ userSchema.statics.findByCredentials = async(email, password) => {
 userSchema.pre('save', async function(next){        //we have used function instead of 
     const user = this;                            //arrow function because arrow functions don't bind this keyword.
     
-    console.log('saving user');
+    //console.log('saving user');
 
     if(user.isModified('password')){
         //console.log('running');
