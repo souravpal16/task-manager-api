@@ -14,10 +14,11 @@ router.post('/user/new', async (req, res)=>{
     const user = req.body;
     try{
         const userCreated = UserDB(user);
-        res.send({userCreated});
+        //res.send({userCreated});
         await userCreated.save();
+        res.send({"status": "running"});
         const token = await userCreated.generateAuthToken();
-        res.status(200).send({user: userCreated, token});
+       // res.status(200).send({user: userCreated, token});
     }
     catch(e){
         res.status(501).send({"error": "user not created", e});
