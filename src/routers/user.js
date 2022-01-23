@@ -14,6 +14,7 @@ router.post('/user/new', async (req, res)=>{
     const user = req.body;
     try{
         const userCreated = UserDB(user);
+        res.send({userCreated});
         await userCreated.save();
         const token = await userCreated.generateAuthToken();
         res.status(200).send({user: userCreated, token});
